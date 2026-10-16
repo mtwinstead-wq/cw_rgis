@@ -6,18 +6,20 @@ pacman::p_load(tidyverse,
                sf,
                mapview,
                here)
+ 
 
 # Q1. Read the dataset "data_finsync_nc.csv" from the data subdirectory 
 # and assign it to an object named `df_fish`.
 # Reference: Chapter 2
 df_fish<-read_csv("data/data_finsync_nc.csv")
 
+
 # Q2. Using `df_fish`, create a dataframe with unique site name (`site_id`), 
 # longitude (`lon`), and latitude (`lat`), and assign it to `df_site`.
 # Hint: use `distinct()` function.
 # Reference: Chapter 2
-
 df_site<-df_fish%>%distinct(site_id,lon,lat)
+
 
 # Q3. `df_site` currently has no coordinate reference system (CRS). 
 # Convert it to an `sf` object and assign the WGS 84 CRS (EPSG: 4326). 
